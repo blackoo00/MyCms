@@ -1,8 +1,22 @@
-import types from '../../common/constants/ActionTypes';
+import types from '../constants/ActionTypes';
 import shop from '../../shared/shop2';
 
-export const Login = () => dispatch => {
-    shop.login(data => {
+export const Login = (ac,se) => dispatch => {
+    const aData = {
+        ac:ac,
+        se:se
+    }
+    shop.login(aData,data => {
         console.log(data);
     })
 };
+
+export const handleAccount = data => ({
+    type:types.INPUTAC,
+    data:data
+});
+
+export const handlePassword = data => ({
+    type:types.INPUTSE,
+    data:data
+});

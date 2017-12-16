@@ -13,7 +13,11 @@ class App extends Component {
 		return(
 			<div>
 				<Login
-					login = {rest.login}
+					login = {() => {rest.login(rest.ac,rest.se)}}
+                    handleAccount = {e => {rest.handleAccount(e.target.value)}}
+                    handlePassword = {e => {rest.handlePassword(e.target.value)}}
+                    ac = {rest.ac}
+                    se = {rest.se}
 				/>
 			</div>
 		)
@@ -21,13 +25,22 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-
+    ac:state.login.ac,
+    se:state.login.se
 })
 
 const mapDispatchToProps = dispatch => ({
-	login:() => {
-		dispatch(actions.Login());
-	}
+	login:(ac,se) => {
+        console.log(ac);
+        console.log(se);
+		dispatch(actions.Login(ac,se));
+	},
+    handleAccount:value => {
+        dispatch(actions.handleAccount(value))
+    },
+    handlePassword:value => {
+        dispatch(actions.handlePassword(value))
+    }
 })
 
 export default connect(

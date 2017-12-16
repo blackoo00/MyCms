@@ -24,9 +24,9 @@ class App extends React.Component{
                     <Pdetail
                         info = {rest.info}
                         attr = {rest.attr}
-                        change = {(e) => {rest.change(e.target.value,e.target.dataset.item)}}
-                        save = {() => {rest.save(rest.info,rest.attr)}}
-                        chooseAttr = {(e) => {rest.chooseAttr(e)}}
+                        change = {(e) =>{rest.change(e.target.value,e.target.dataset.item)}}
+                        save = {() =>{rest.save(rest.info,rest.attr)}}
+                        chooseAttr = {(e) =>{rest.chooseAttr(e)}}
                         upload = {(e) => rest.upload(e)}
                         isOnSale = {() => rest.isOnSale()}
                     >

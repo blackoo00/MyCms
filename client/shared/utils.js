@@ -1,5 +1,35 @@
 import request from 'superagent'
 
+function myPost(options) {
+    return new Promise(resolve => {
+        request.post(options.url)
+            .send(options.data)
+            .type('application/json')
+            .then(res => {
+                // console.log(res)
+                // console.log(res.body.token)
+                if(res.body.token && ! localStorage.getItem('token')){
+                    localStorage.setItem('token',res.body.token);
+                }
+                console.log(localStorage.getItem('token'));
+            },err => {
+                console.log(err);
+            })
+            // .end(function(res){
+            //     console.log(res);
+            //     console.log(res.body);
+            //     if(res.ok){
+            //         resolve(res);
+            //     }else{
+            //         console.log(res);
+            //     }
+            // })
+    }).catch(err =>{
+        console.log(err);
+    })
+}
+
+
 /**
  * @param  {Object} options
  * @return {Object}         Return Promise
@@ -49,5 +79,6 @@ function getURLParams() {
 
 export default {
     ajax,
-    getURLParams
+    getURLParams,
+    myPost
 }
