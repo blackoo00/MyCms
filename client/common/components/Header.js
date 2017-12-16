@@ -8,13 +8,14 @@ class Header extends Component {
     }
 
     render() {
+        const {account} = this.props;
         return (
             <header className={styles.header}>
                 <div className={styles.left}>
                     <span className={styles.span}>后台管理</span>
                 </div>
                 <div className={styles.right}>
-                    <span className={styles.description}>Hello, world！</span>
+                    <span className={styles.description}>Hello, {account}！</span>
                     <img className={styles.img} src={imgAvatar}/>
                 </div>
             </header>

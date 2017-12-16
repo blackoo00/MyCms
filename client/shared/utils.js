@@ -1,34 +1,31 @@
 import request from 'superagent'
 
-function myPost(options) {
+function newAjax(options){
     return new Promise(resolve => {
-        request.post(options.url)
-            .send(options.data)
-            .type('application/json')
-            .then(res => {
-                // console.log(res)
-                // console.log(res.body.token)
-                if(res.body.token && ! localStorage.getItem('token')){
-                    localStorage.setItem('token',res.body.token);
-                }
-                console.log(localStorage.getItem('token'));
-            },err => {
-                console.log(err);
-            })
-            // .end(function(res){
-            //     console.log(res);
-            //     console.log(res.body);
-            //     if(res.ok){
-            //         resolve(res);
-            //     }else{
-            //         console.log(res);
-            //     }
-            // })
+        if(options.type == 'post'){
+            request.post(options.url)
+                .send(options.data)
+                .type('application/json')
+                .set('token',localStorage.getItem('token'))
+                .then(res => {
+                    resolve(res.body);
+                },err => {
+                    console.log(err);
+                })
+        }else{
+            request.get(options.url)
+                .query(options.data)
+                .set('token',localStorage.getItem('token'))
+                .then(res => {
+                    resolve(res.body);
+                },err => {
+                    console.log(err);
+                })
+        }
     }).catch(err =>{
         console.log(err);
     })
 }
-
 
 /**
  * @param  {Object} options
@@ -80,5 +77,5 @@ function getURLParams() {
 export default {
     ajax,
     getURLParams,
-    myPost
+    newAjax
 }

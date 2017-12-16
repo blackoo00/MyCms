@@ -1,4 +1,4 @@
-import * as types from '../../common/constants/ActionTypes';
+import * as types from '../constants/ActionTypes';
 import shop from '../../shared/shop';
 
 const homeInitDip = data => ({

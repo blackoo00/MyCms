@@ -1,6 +1,4 @@
 const STORESERVER = 'http://z.cn/api/v1/';
-import request from 'superagent'
-
 import utils from './utils';
 const initialArr = {
     url:'',
@@ -9,13 +7,16 @@ const initialArr = {
     server:STORESERVER
 };
 
-const ajaxData = (arr = initialArr,callback = function(){}) => {
-    arr = {...initialArr,...arr}
-    utils.myPost({
+const ajaxData = (arr = initialArr, callback = function(){}) => {
+    arr = {...initialArr,...arr};
+    utils.newAjax({
         url: arr.server + arr.url,
         data:arr.data,
         type:arr.type,
-    })
+    }).then(res => {
+            callback(res);
+        }
+    )
 }
 export default {
     login:(aData,cb) => {

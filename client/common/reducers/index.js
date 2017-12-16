@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
 import userInfo from './userInfo';
-import home from './home';
+import home from '../../home/reducers/';
 import member from './member';
 import cats from './cats';
 import product from '../../product/reducers/product';

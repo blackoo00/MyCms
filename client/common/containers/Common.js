@@ -16,17 +16,20 @@ class Common extends Component {
     }
 
     componentWillMount(){
-        // if(typeof window != 'undefined'){
-        //     browserHistory.push('/login')
-        // }
+        if(typeof window != 'undefined' && !localStorage.getItem('token')){
+            browserHistory.push('/login')
+        }
     }
 
     render() {
         const {children, ...props} = this.props
-
+        console.log(localStorage.getItem('account'));
+        console.log(localStorage.getItem('token'));
         return (
             <div className={styles.app}>
-                <Header/>
+                <Header
+                    account = {localStorage.getItem('account')}
+                />
                 <Navbar/>
                 <Main>
                     {Children.map(children, child =>

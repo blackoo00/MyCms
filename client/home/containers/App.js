@@ -16,7 +16,6 @@ class App extends Component {
 
     render() {
         let {...rest} = this.props;
-        console.log(rest.data);
         return (
             <div className={styles.app}>
                 <SectionMain

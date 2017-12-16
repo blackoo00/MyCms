@@ -1,8 +1,7 @@
 import React from 'react'
-import {Table,thead,Button} from 'react-bootstrap'
+import {Button, Table, thead} from 'react-bootstrap'
 import styles from '../sass/style.scss';
 import CssModules from 'react-css-modules';
-import {Link} from 'react-router';
 
 const Cats = ({list}) => (
     <Table responsive styleName="cat-wrap">

@@ -1,13 +1,18 @@
 import types from '../constants/ActionTypes';
-import shop from '../../shared/shop2';
+import model from '../../shared/model';
+import {browserHistory} from 'react-router';
 
 export const Login = (ac,se) => dispatch => {
     const aData = {
         ac:ac,
         se:se
-    }
-    shop.login(aData,data => {
-        console.log(data);
+    };
+    model.login(aData,(token) => {
+        if(token && !localStorage.getItem('token')){
+            localStorage.setItem('token',token);
+            localStorage.setItem('account',ac);
+        }
+        browserHistory.push('/')
     })
 };
 

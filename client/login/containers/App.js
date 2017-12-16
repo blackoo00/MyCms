@@ -5,7 +5,7 @@ import * as actions from '../actions/'
 
 class App extends Component {
 	componentWillMount(){
-		console.log(1);
+		console.log(localStorage.getItem('token'));
 	}
 
 	render(){
