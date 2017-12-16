@@ -1,0 +1,28 @@
+.pdetail-form{
+    padding: 15px;
+}
+.logo-add{
+    width: 100px;
+    height: 100px;
+    border: 2px solid #ccc;
+    position: relative;
+}
+.logo-add img{
+    width: 100%;
+}
+.logo-add:before,.logo-add:after{
+    content:'';
+    background-color: #ccc;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.logo-add:before{
+    height: 2px;
+    width: 80%;
+}
+.logo-add:after{
+    width: 2px;
+    height: 80%;
+}
