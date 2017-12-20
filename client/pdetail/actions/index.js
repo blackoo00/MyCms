@@ -9,7 +9,6 @@ const pdetailInitDip = data => ({
 
 export const pdetailInit = (id) => dispatch => {
     model.getDetail(id).then(res => {
-        console.log(res);
         dispatch(pdetailInitDip(res))
     });
 };
@@ -43,5 +42,5 @@ export const isOnSale = () => ({
 //编辑商品详情
 export const editProCon = con => ({
     type:types.EDIT_PRO_DESC,
-    con:con
-})
+    content:con
+});

@@ -1,12 +1,21 @@
 import types from '../constants/ActionTypes';
 
-const initialState = {}
+const initialState = {
+    editor_con:'',
+    editor_icons:[
+        "source | undo redo | bold italic underline strikethrough fontborder emphasis | ",
+        "paragraph fontfamily fontsize | superscript subscript | ",
+        "forecolor backcolor | removeformat | insertorderedlist insertunorderedlist | selectall | ",
+        "cleardoc  | indent outdent | justifyleft justifycenter justifyright | touppercase tolowercase | ",
+        "horizontal date time  | image emotion spechars | inserttable"
+    ],
+}
 
 const App = (state = initialState, action) => {
     switch (action.type) {
         //编辑商品详情
         case types.EDIT_PRO_DESC:
-            state.desc = action.con;
+            state.editor_con = action.content;
             return {
                 ...state
             }
