@@ -138,20 +138,20 @@ const App = (state = initialState, action) => {
 
             return{
                 ...state,
-            }
+            };
         //商品详情页初始化
-        case types.PDETAIL_INIT:
-            const data_list = [];
-            action.data.attr.map((item,index) => {
-                data_list[item.id] = item;
-            })
-            return {
-                ...state,
-                spec:action.data.spec,
-                all:data_list,
-                choose_id:action.data.choose_id,
-                choose:action.data.detail
-            }
+        // case types.PDETAIL_INIT:
+        //     const data_list = [];
+        //     action.data.attr.map((item,index) => {
+        //         data_list[item.id] = item;
+        //     })
+        //     return {
+        //         ...state,
+        //         spec:action.data.spec,
+        //         all:data_list,
+        //         choose_id:action.data.choose_id,
+        //         choose:action.data.detail
+        //     }
         default:
             return state
     }

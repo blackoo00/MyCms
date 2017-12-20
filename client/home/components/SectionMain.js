@@ -9,22 +9,21 @@ const SectionMain = ({data}) => (
             <Row className="show-grid">
               <Col lg={2}>
                 <Panel header="会员信息" bsStyle="info">
-                    <Item title={'已关注'} value={data.prod_total_num}/>
+                    <Item title={'已关注'} value={data.user_count}/>
                 </Panel>
               </Col>
               <Col lg={3}>
                 <Panel header="商品信息" bsStyle="info">
-                    <Item title={'上传商品'} value={data.prod_total_num}/>
-                    <Item title={'上架商品'} value={data.prod_on_sale}/>
+                    <Item title={'上传商品'} value={data.total_count}/>
+                    <Item title={'上架商品'} value={data.on_sale}/>
                 </Panel>
               </Col>
               <Col lg={7}>
                 <Panel header="订单信息" bsStyle="info">
-                    <Item title={'已生成'} value={data.prod_total_num}/>
-                    <Item title={'进行中'} value={data.prod_on_sale}/>
-                    <Item title={'已完成'} value={data.prod_on_sale}/>
-                    <Item title={'申请退款'} value={data.prod_on_sale}/>
-                    <Item title={'退款完成'} value={data.prod_on_sale}/>
+                    <Item title={'未付款'} value={data.order_status1}/>
+                    <Item title={'已付款'} value={data.order_status2}/>
+                    <Item title={'已发货'} value={data.order_status3}/>
+                    <Item title={'库存不足'} value={data.order_status4}/>
                 </Panel>
               </Col>
             </Row>

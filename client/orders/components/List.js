@@ -20,11 +20,11 @@ const Cats = ({list}) => (
             {list.map(item => (
                 <tr key={'order_'+item.id}>
                     <td>{item.id}</td>
-                    <td>{item.order_sn}</td>
-                    <td></td>
-                    <td>{item.user.name}</td>
-                    <td>{item.consignee}</td>
-                    <td>{item.pay_fee}</td>
+                    <td>{item.order_no}</td>
+                    <td>{item.snap_name}</td>
+                    <td>{item.nickname}</td>
+                    <td>{item.nickname}</td>
+                    <td>{item.total_price}</td>
                     <td><Button bsStyle="info">详情</Button></td>
                 </tr>
             ))}

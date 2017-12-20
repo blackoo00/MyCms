@@ -4,7 +4,7 @@ const initialState = {
     list:[],
     showlist:[],
     items:0,
-    maxButtons:0,
+    maxButtons:5,
     activePage:1
 }
 

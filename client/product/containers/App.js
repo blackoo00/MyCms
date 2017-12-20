@@ -7,6 +7,7 @@ import Search from '../../common/components/Search';
 
 class App extends React.Component{
     componentWillMount(){
+        const cid = this.props.params.cid;
         let {init} = this.props;
         init();
     }
@@ -35,7 +36,7 @@ class App extends React.Component{
 
 const mapStateToProps = state => ({
     data:state.product,
-})
+});
 
 const mapDispatchToProps = dispatch => ({
     init:() => {

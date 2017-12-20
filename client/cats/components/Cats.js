@@ -20,9 +20,9 @@ const Cats = ({list}) => (
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td><img src={item.icon}/></td>
+                    <td><img src={item.img['url']}/></td>
                     <td>{item.sort}</td>
-                    <td><Link to="/product"><Button bsStyle="info">商品管理</Button></Link></td>
+                    <td><Link to={"/product/" + item.id}><Button bsStyle="info">商品管理</Button></Link></td>
                 </tr>
             ))}
         </tbody>

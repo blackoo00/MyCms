@@ -4,11 +4,11 @@ const initialState = {
     list:[],
     showlist:[],
     items:0,
-    maxButtons:0,
+    maxButtons:5,
     activePage:1,
     search_list:[],
     search_items:0,
-    search_maxButtons:0,
+    search_maxButtons:5,
     search_activePage:1,
     search_key:'',
 }

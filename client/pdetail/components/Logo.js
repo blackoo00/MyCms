@@ -2,6 +2,7 @@ import React from 'react'
 import FileUpload from 'react-fileupload'
 import styles from '../sass/style.scss';
 import CSSModules from 'react-css-modules';
+import {Col, ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 
 class App extends React.Component{
     render(){
@@ -13,15 +14,20 @@ class App extends React.Component{
                 console.log(resp);
                 upload(resp.data);
             },
-        }
+        };
         return(
-            <div>
-                <FileUpload options={options}>
-                    <div styleName="logo-add" ref="chooseAndUpload">
-                        <img src={src}/>
-                    </div>
-                </FileUpload>
-            </div>
+            <FormGroup validationState="success">
+                <Col componentClass={ControlLabel} sm={2}>
+                    LOGO
+                </Col>
+                <Col sm={10}>
+                    <FileUpload options={options}>
+                        <div styleName="logo-add" ref="chooseAndUpload">
+                            <img src={src}/>
+                        </div>
+                    </FileUpload>
+                </Col>
+            </FormGroup>
         )
     }
 }

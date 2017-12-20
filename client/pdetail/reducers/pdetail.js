@@ -1,11 +1,9 @@
 import types from '../constants/ActionTypes';
 
-const initialState = {
-
-}
+const initialState = {}
 
 const App = (state = initialState, action) => {
-    switch(action.type){
+    switch (action.type) {
         //编辑商品详情
         case types.EDIT_PRO_DESC:
             state.desc = action.con;
@@ -24,11 +22,12 @@ const App = (state = initialState, action) => {
             return {
                 ...state,
             }
+        //初始化
         case types.PDETAIL_INIT:
             return {
                 ...state,
                 ...action.data
-            }
+            };
         case types.UPLOAD_LOGO:
             state.logo = action.src;
             return {

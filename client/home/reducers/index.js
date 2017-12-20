@@ -1,8 +1,9 @@
 import types from '../constants/ActionTypes';
 
 const initialState = {
-    prod_total_num:0,
-    prod_on_sale:0
+    user_count:0,
+    total_count:0,
+    on_sale:0
 }
 
 const App = (state = initialState,action) => {

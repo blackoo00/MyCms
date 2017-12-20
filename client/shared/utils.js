@@ -1,4 +1,5 @@
 import request from 'superagent'
+import {browserHistory} from 'react-router';
 
 function newAjax(options){
     return new Promise(resolve => {
@@ -6,19 +7,26 @@ function newAjax(options){
             request.post(options.url)
                 .send(options.data)
                 .type('application/json')
-                .set('token',localStorage.getItem('token'))
+                .set('token',typeof window != 'undefined' ? localStorage.getItem('token') : '')
                 .then(res => {
                     resolve(res.body);
-                },err => {
-                    console.log(err);
                 })
+                .catch(err => {
+                    console.log(err)
+                });
         }else{
             request.get(options.url)
                 .query(options.data)
-                .set('token',localStorage.getItem('token'))
+                .set('token',typeof window != 'undefined' ? localStorage.getItem('token') : '')
                 .then(res => {
                     resolve(res.body);
                 },err => {
+                    if(err.response.status == 401){
+                        if(window.confirm(err.response.body.msg)){
+                            browserHistory.push('/login');
+                        }
+                    }
+                    console.log(err.response);
                     console.log(err);
                 })
         }

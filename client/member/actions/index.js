@@ -1,5 +1,6 @@
-import types from '../../common/constants/ActionTypes';
+import types from '../constants/ActionTypes';
 import shop from '../../shared/shop';
+import model from '../model/';
 
 const initDip = (data) => ({
     type:types.MEMBER_INIT,
@@ -7,7 +8,11 @@ const initDip = (data) => ({
 })
 
 export const init = () => dispatch => {
-    shop.memberInit(data => {
-        dispatch(initDip(data))
-    })
+    model.getUserList().then(res => {
+        console.log(res);
+        dispatch(initDip(res))
+    });
+    // shop.memberInit(data => {
+    //     dispatch(initDip(data))
+    // })
 }

@@ -40,7 +40,7 @@ const routes = {
                 }, 'cats')
             }
         }, {
-            path: 'product',
+            path: 'product/:cid',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
                     callback(null, require('./product/containers/App'))

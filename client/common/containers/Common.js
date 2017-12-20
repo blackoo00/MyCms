@@ -22,13 +22,15 @@ class Common extends Component {
     }
 
     render() {
-        const {children, ...props} = this.props
-        console.log(localStorage.getItem('account'));
-        console.log(localStorage.getItem('token'));
+        const {children, ...props} = this.props;
+        let account = '游客';
+        if(typeof window != 'undefined'){
+            account = localStorage.getItem('account');
+        }
         return (
             <div className={styles.app}>
                 <Header
-                    account = {localStorage.getItem('account')}
+                    account = {account}
                 />
                 <Navbar/>
                 <Main>

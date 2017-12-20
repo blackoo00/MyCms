@@ -14,10 +14,10 @@ const MemberList = ({list}) => (
             </thead>
             <tbody>
                 {list.map(item => (
-                    <tr>
+                    <tr key = {'member_id' + item.id}>
                       <td>{item.id}</td>
-                      <td>{item.name}</td>
-                      <td><img style={{width:'100px'}} src={item.headimgurl}/></td>
+                      <td>{item.nickname}</td>
+                      <td><img style={{width:'100px'}} src={item.avatarUrl}/></td>
                     </tr>
                 ))}
             </tbody>

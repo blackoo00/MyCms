@@ -1,5 +1,6 @@
 import * as types from '../constants/ActionTypes';
 import shop from '../../shared/shop';
+import model from '../model/';
 
 const homeInitDip = data => ({
     type:types.HOME_INIT,
@@ -7,7 +8,16 @@ const homeInitDip = data => ({
 })
 
 export const homeInit = () => dispatch => {
-    shop.homeInit(data => {
-        dispatch(homeInitDip(data))
+    model.getUsers().then(res => {
+        dispatch(homeInitDip({user_count:res}))
+    });
+    model.getProds().then(res => {
+        dispatch(homeInitDip(res))
+    });
+    model.getOrders().then(res => {
+        dispatch(homeInitDip(res))
     })
-}
+    // shop.homeInit(data => {
+    //     dispatch(homeInitDip(data))
+    // })
+};

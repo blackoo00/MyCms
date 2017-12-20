@@ -24,11 +24,11 @@ const Cats = ({list}) => (
                 <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.name}</td>
-                    <td>{item.cat.name}</td>
+                    <td>{item.cat_name}</td>
                     <td>{item.price}</td>
-                    <td><img src={item.logo}/></td>
+                    <td><img src={item.main_img_url}/></td>
                     <td>{item.sales_count}</td>
-                    <td>{item.number}</td>
+                    <td>{item.stock}</td>
                     <td>{item.is_on_sale == 1 ? '是' : '否'}</td>
                     <td><Link to={"/pdetail/"+item.id}><Button bsStyle="info">商品管理</Button></Link></td>
                 </tr>

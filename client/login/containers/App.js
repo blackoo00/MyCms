@@ -5,7 +5,6 @@ import * as actions from '../actions/'
 
 class App extends Component {
 	componentWillMount(){
-		console.log(localStorage.getItem('token'));
 	}
 
 	render(){
@@ -31,8 +30,6 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	login:(ac,se) => {
-        console.log(ac);
-        console.log(se);
 		dispatch(actions.Login(ac,se));
 	},
     handleAccount:value => {
