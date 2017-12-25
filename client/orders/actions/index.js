@@ -1,6 +1,5 @@
-import types from '../constants/ActionTypes';
-import shop from '../../shared/shop';
-import model from '../model/';
+import types from '../constants/ActionTypes'
+import model from '../model/'
 
 const InitDip = data => ({
     type:types.ORDERS_INIT,

@@ -11,7 +11,9 @@ class App extends Component {
 
     componentWillMount(){
         const {init} = this.props;
-        init();
+        if(typeof window != 'undefined'){
+            init();
+        }
     }
 
     render() {

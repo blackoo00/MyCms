@@ -30,6 +30,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	login:(ac,se) => {
+	    console.log(1);
 		dispatch(actions.Login(ac,se));
 	},
     handleAccount:value => {

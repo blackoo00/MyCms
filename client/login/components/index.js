@@ -1,6 +1,8 @@
 import React from 'react';
 import Login from '../img/logo.png';
-import '../sass/style.css';
+if(typeof window != 'undefined'){
+    require('../sass/style.css');
+}
 
 const App = ({login,ac,se,handleAccount,handlePassword}) => (
 	<div>

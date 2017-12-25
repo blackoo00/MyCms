@@ -1,4 +1,5 @@
-import model from '../../shared/model';
+import {Model} from '../../shared/model';
+const model = new Model();
 
 export default {
     login:(aData) => {

@@ -6,11 +6,12 @@ const initDip = data => ({
     data:data
 })
 
-export const init = () => dispatch => {
-    model.getList().then(res => {
+export const init = (cid) => dispatch => {
+    model.getList(1,'',cid).then(res => {
         let data = {};
         data.items = res.last_page;
         data.showlist = res.data;
+        data.cid = res.cid;
         dispatch(initDip(data));
     });
 };

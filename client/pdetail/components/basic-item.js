@@ -1,7 +1,7 @@
 import React from 'react';
 import {Col, ControlLabel, FormControl, FormGroup} from 'react-bootstrap';
 
-const App = ({name,value,change,sm = 10,dataItem,readonly = false}) => (
+const App = ({name,value,change,sm = 7,dataItem,readonly = false}) => (
     <FormGroup validationState="success">
         <Col componentClass={ControlLabel} sm={2}>
             {name}

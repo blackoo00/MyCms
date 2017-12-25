@@ -1,13 +1,12 @@
 import React from 'react';
-import Editor from 'react-umeditor';
-import {Button, Col, FormGroup} from 'react-bootstrap';
+import {Col, ControlLabel, FormGroup} from 'react-bootstrap';
 
-const App = ({children}) => (
+const App = ({children,sm = 7}) => (
     <FormGroup>
-        <Col sm={2}>
-
+        <Col componentClass={ControlLabel} sm={2}>
+            商品详情
         </Col>
-        <Col sm={10}>
+        <Col sm={sm}>
             {children}
         </Col>
     </FormGroup>

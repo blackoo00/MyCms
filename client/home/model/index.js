@@ -1,4 +1,5 @@
-import model from '../../shared/model';
+import {Model} from '../../shared/model';
+var model = new Model()
 
 export default {
     getUsers: () => {

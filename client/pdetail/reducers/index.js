@@ -1,7 +1,6 @@
 import types from '../constants/ActionTypes';
 
 const initialState = {
-    editor_con:'',
     editor_icons:[
         "source | undo redo | bold italic underline strikethrough fontborder emphasis | ",
         "paragraph fontfamily fontsize | superscript subscript | ",
@@ -15,7 +14,7 @@ const App = (state = initialState, action) => {
     switch (action.type) {
         //编辑商品详情
         case types.EDIT_PRO_DESC:
-            state.editor_con = action.content;
+            state.details = action.content;
             return {
                 ...state
             }

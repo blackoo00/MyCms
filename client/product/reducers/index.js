@@ -2,6 +2,7 @@ import types from '../constants/ActionTypes';
 
 const initialState = {
     list:[],
+    cid:0,
     showlist:[],
     items:0,
     maxButtons:5,

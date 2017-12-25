@@ -1,6 +1,5 @@
-import types from '../constants/ActionTypes';
-import shop from '../../shared/shop';
-import model from '../model/';
+import types from '../constants/ActionTypes'
+import model from '../model/'
 
 const pdetailInitDip = data => ({
     type:types.PDETAIL_INIT,
@@ -19,12 +18,15 @@ export const editProdItem = (item,value) => ({
     value:value,
 });
 //保存产品信息
-export const saveProd = (data) => dispatch => {
-    const save_data = JSON.stringify(data);
-    console.log(data);
-    console.log(save_data);
-    model.update(data).then(res => {
-        console.log(res);
+export const saveProd = (data,msg) => dispatch => {
+    // const save_data = JSON.stringify(data);
+    model.updateData(data).then(res => {
+        if(res.code == 201){
+            msg.show('修改成功', {
+                time: 2000,
+                type: 'success',
+            });
+        }
     })
     // shop.saveProd(save_data);
 };

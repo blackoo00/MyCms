@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import SectionMain from '../components/SectionMain'
 import styles from '../sass/App'
 import {connect} from 'react-redux'
-import  * as actions from '../actions/';
+import * as actions from '../actions/';
 
 class App extends Component {
     constructor() {
@@ -11,12 +11,13 @@ class App extends Component {
 
     componentWillMount(){
         let {init} = this.props;
-        init();
+        if(typeof window != 'undefined'){
+            init();
+        }
     }
 
     render() {
         const {list} = this.props
-
         return (
             <div className={styles.app}>
                 <SectionMain list={list}></SectionMain>

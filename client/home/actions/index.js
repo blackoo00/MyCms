@@ -1,6 +1,5 @@
-import * as types from '../constants/ActionTypes';
-import shop from '../../shared/shop';
-import model from '../model/';
+import * as types from '../constants/ActionTypes'
+import model from '../model/'
 
 const homeInitDip = data => ({
     type:types.HOME_INIT,

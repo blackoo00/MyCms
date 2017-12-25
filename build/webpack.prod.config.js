@@ -44,6 +44,12 @@ clientConfig = {
                 plugins: ['transform-runtime', 'add-module-exports'],
                 cacheDirectory: true
             }
+        },{
+            test: /\.less$/,
+            loader: 'style!css!less'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
         }, {
             test: /\.scss$/,
             loader: ExtractTextPlugin.extract('style', 'css?modules&camelCase&importLoaders=1&localIdentName=[hash:base64:8]!postcss!sass')
@@ -59,7 +65,7 @@ clientConfig = {
         }]
     },
     postcss: [autoprefixer({browsers: ['> 5%']})],
-    resolve: {extensions: ['', '.js', '.json', '.scss']},
+    resolve: {extensions: ['', '.js', '.json', '.scss', '.less','.css']},
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),
@@ -104,6 +110,12 @@ serverConfig = {
                 plugins: ['add-module-exports'],
                 cacheDirectory: true
             }
+        },{
+            test: /\.less$/,
+            loader: 'style!css!less'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
         }, {
             test: /\.scss$/,
             loaders: [
@@ -119,7 +131,7 @@ serverConfig = {
         }]
     },
     externals: getExternals(),
-    resolve: {extensions: ['', '.js', '.json', '.scss']},
+    resolve: {extensions: ['', '.js', '.json', '.scss', '.less','.css']},
     plugins: [
         new webpack.optimize.OccurrenceOrderPlugin(),
         new webpack.optimize.DedupePlugin(),

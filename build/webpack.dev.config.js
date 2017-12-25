@@ -35,6 +35,12 @@ module.exports = {
                 plugins: ['transform-runtime', 'add-module-exports'],
                 cacheDirectory: true
             }
+        },{
+            test: /\.less$/,
+            loader: 'style!css!less'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
         }, {
             test: /\.scss$/,
             loaders: [
@@ -42,12 +48,6 @@ module.exports = {
                 'css?modules&camelCase&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:8]',
                 'sass'
             ]
-        }, {
-          test: /\.less$/,
-          loader: 'style!css!less'
-        }, {
-            test: /\.css$/,
-            loader: "style!css"
         }, {
             test: /\.(jpg|png|gif|webp)$/,
             loader: 'url?limit=8000'
@@ -57,14 +57,9 @@ module.exports = {
         }, {
             test: /\.html$/,
             loader: 'html?minimize=false'
-        },
-        { test: /\.woff$/, loader: "url-loader?limit=10000&mimetype=application/font-woff" },
-        { test: /\.ttf$/,  loader: "url-loader?limit=10000&mimetype=application/octet-stream" },
-        { test: /\.eot$/,  loader: "file-loader" },
-        { test: /\.svg$/,  loader: "url-loader?limit=10000&mimetype=image/svg+xml" }
-        ]
+        }]
     },
-    resolve: {extensions: ['', '.js', '.json', '.scss', '.css']},
+    resolve: {extensions: ['', '.js', '.json', '.scss']},
     plugins: [
         new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.CommonsChunkPlugin({

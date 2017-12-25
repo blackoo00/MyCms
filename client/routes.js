@@ -32,28 +32,21 @@ const routes = {
                     callback(null, require('./member/containers/App'))
                 }, 'member')
             }
-        }, {
-            path: 'cats',
-            getComponent(nextState, callback) {
-                require.ensure([], require => {
-                    callback(null, require('./cats/containers/App'))
-                }, 'cats')
-            }
-        }, {
+        },{
             path: 'product/:cid',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
                     callback(null, require('./product/containers/App'))
                 }, 'product')
             }
-        }, {
-            path: 'pdetail/:id',
+        },{
+            path: 'cats',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
-                    callback(null, require('./pdetail/containers/App'))
-                }, 'pdetail')
+                    callback(null, require('./cats/containers/App'))
+                }, 'cats')
             }
-        }, {
+        },{
             path: 'orders',
             getComponent(nextState, callback) {
                 require.ensure([], require => {
@@ -61,6 +54,20 @@ const routes = {
                 }, 'orders')
             }
         },{
+            path: 'pdetail/:id',
+            getComponent(nextState, callback) {
+                    require.ensure([], require => {
+                        callback(null, require('./pdetail/containers/App'))
+                    }, 'pdetail')
+            }
+        },{
+            path: 'explore',
+            getComponent(nextState, callback) {
+                require.ensure([], require => {
+                    callback(null, require('./explore/containers/App'))
+                }, 'explore')
+            }
+        }, {
             path: 'about',
             getComponent(nextState, callback) {
                 require.ensure([], require => {

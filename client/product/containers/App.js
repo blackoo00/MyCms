@@ -9,7 +9,15 @@ class App extends React.Component{
     componentWillMount(){
         const cid = this.props.params.cid;
         let {init} = this.props;
-        init();
+        init(cid);
+    }
+    componentWillReceiveProps(nextProps){
+        const old_cid = this.props.params.cid;
+        const next_cid = nextProps.params.cid;
+        if(old_cid != next_cid){
+            let {init} = this.props;
+            init(next_cid);
+        }
     }
 
     render(){
@@ -39,8 +47,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    init:() => {
-        dispatch(actions.init());
+    init:(cid) => {
+        dispatch(actions.init(cid));
     },
     page:(page,list,key) => {
         dispatch(actions.prodPage(page,list,key))

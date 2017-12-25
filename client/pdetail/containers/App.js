@@ -8,15 +8,13 @@ import BasicItem from '../components/basic-item';
 import Save from '../components/save';
 import EditorCom from '../components/editor';
 import Editor from 'react-umeditor';
+import AlertContainer from 'react-alert'
 
 class App extends React.Component {
     componentWillMount() {
         let id = this.props.params.id;
         let {init} = this.props;
         init(id);
-    }
-    componentDidMount(){
-        // location.reload();
     }
 
     getQiniuUploader() {
@@ -66,7 +64,7 @@ class App extends React.Component {
                     <BasicItem
                         name="库存"
                         value={rest.info.stock}
-                        dataItem="number"
+                        dataItem="stock"
                         change={(e) => {
                             rest.change(e.target.value, e.target.dataset.item)
                         }}
@@ -83,20 +81,29 @@ class App extends React.Component {
                             rest.isOnSale()
                         }}
                     />
-                    <EditorCom>
-                        <Editor ref="editor"
-                                icons={rest.info.editor_icons}
-                                value={rest.info.editor_con}
-                                defaultValue=""
-                                onChange={rest.editCon}
-                                plugins={plugins}/>
-                    </EditorCom>
+                    {typeof window != 'undefined' ?
+                        <EditorCom>
+                            <Editor ref="editor"
+                                    icons={rest.info.editor_icons}
+                                    value={rest.info.details}
+                                    defaultValue=""
+                                    onChange={rest.editCon}
+                                    plugins={plugins}/>
+                        </EditorCom>
+                        : ''}
                     <Save
                         save={() => {
-                            rest.save(rest.info)
+                            rest.save(rest.info,this.msg)
                         }}
                     />
                 </Form>
+                <AlertContainer ref={a => this.msg = a} {...{
+                    offset: 14,
+                    position: 'bottom left',
+                    theme: 'dark',
+                    time: 5000,
+                    transition: 'scale'
+                }}/>
             </div>
         )
     }
@@ -116,8 +123,8 @@ const mapDispatchToProp = dispatch => ({
     change: (value, item) => {
         dispatch(actions.editProdItem(item, value));
     },
-    save: (info) => {
-        dispatch(actions.saveProd(info))
+    save: (info,msg) => {
+        dispatch(actions.saveProd(info,msg))
     },
     //上传图片
     upload: (src) => {
@@ -125,7 +132,6 @@ const mapDispatchToProp = dispatch => ({
     },
     //编辑产品文档
     editCon:(con) => {
-        console.log(con );
         dispatch(actions.editProCon(con))
     }
 });

@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import styles from '../sass/SectionMain'
 import {Table,thead} from 'react-bootstrap';
 
-const MemberList = ({list}) => (
+const MemberList = ({list = []}) => (
     <section className={styles.sectionMain}>
         <Table responsive>
             <thead>

@@ -1,4 +1,5 @@
-import model from '../../shared/model';
+import {Model} from '../../shared/model';
+const model = new Model();
 
 export default{
     getDetail: (id) => {
@@ -12,9 +13,18 @@ export default{
         })
     },
     updateData:(data) => {
+        let update_data = model.copyObjectByKeys(
+            [
+                'id',
+                'name',
+                'stock',
+                'main_img_url',
+                'is_on_sale',
+                'details'
+            ],data);
         const options = {
             url:'prod/update',
-            data:data,
+            data:update_data,
             type:'post'
         };
         return new Promise(resolve => {
