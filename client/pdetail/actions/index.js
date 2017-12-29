@@ -18,17 +18,20 @@ export const editProdItem = (item,value) => ({
     value:value,
 });
 //保存产品信息
-export const saveProd = (data,msg) => dispatch => {
-    // const save_data = JSON.stringify(data);
-    model.updateData(data).then(res => {
+export const saveProd = (data,msg) => () => {
+    model.updateData(data,msg).then(res => {
         if(res.code == 201){
             msg.show('修改成功', {
                 time: 2000,
                 type: 'success',
             });
+        }else{
+            msg.show('修改失败', {
+                time: 2000,
+                type: 'fail',
+            });
         }
     })
-    // shop.saveProd(save_data);
 };
 
 export const upload = (src) => ({
@@ -46,3 +49,18 @@ export const editProCon = con => ({
     type:types.EDIT_PRO_DESC,
     content:con
 });
+
+export const editProperty = (index,name,value) => ({
+    type:types.EDIT_PRO_PROPERTY,
+    index:index,
+    name:name,
+    value:value
+})
+export const addProperty = (product_id) => ({
+    type:types.EDIT_PRO_PROPERTY_ADD,
+    product_id:product_id
+})
+export const delProperty = (index) => ({
+    type:types.EDIT_PRO_PROPERTY_DEL,
+    index:index
+})

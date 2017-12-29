@@ -12,6 +12,26 @@ const initialState = {
 
 const App = (state = initialState, action) => {
     switch (action.type) {
+        case types.EDIT_PRO_PROPERTY_DEL:
+            console.log(action.index)
+            state.properties.splice(action.index,1);
+            return {
+                ...state
+            }
+        case types.EDIT_PRO_PROPERTY_ADD:
+            state.properties.push({
+                detail:'',
+                name:'',
+                product_id:action.product_id
+            });
+            return {
+                ...state
+            }
+        case types.EDIT_PRO_PROPERTY:
+            state.properties[action.index][action.name] = action.value;
+            return {
+                ...state
+            }
         //编辑商品详情
         case types.EDIT_PRO_DESC:
             state.details = action.content;
@@ -37,7 +57,7 @@ const App = (state = initialState, action) => {
                 ...action.data
             };
         case types.UPLOAD_LOGO:
-            state.logo = action.src;
+            state.main_img_url = action.src;
             return {
                 ...state,
             }

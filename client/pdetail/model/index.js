@@ -12,7 +12,7 @@ export default{
             })
         })
     },
-    updateData:(data) => {
+    updateData:(data,msg) => {
         let update_data = model.copyObjectByKeys(
             [
                 'id',
@@ -20,7 +20,8 @@ export default{
                 'stock',
                 'main_img_url',
                 'is_on_sale',
-                'details'
+                'details',
+                'properties'
             ],data);
         const options = {
             url:'prod/update',
@@ -28,7 +29,7 @@ export default{
             type:'post'
         };
         return new Promise(resolve => {
-            model.ajaxData(options).then(res => {
+            model.ajaxData(options,msg).then(res => {
                 resolve(res);
             })
         })

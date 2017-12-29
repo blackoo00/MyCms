@@ -1,8 +1,8 @@
 import request from 'superagent'
 import {browserHistory} from 'react-router';
 
-class Utils {
-    newAjax(options) {
+class Utils{
+    newAjax(options,msg) {
         return new Promise(resolve => {
             if (options.type == 'post') {
                 request.post(options.url)
@@ -13,6 +13,15 @@ class Utils {
                         resolve(res.body);
                     })
                     .catch(err => {
+                        if (err.response.status == 401 && typeof window != 'undefined') {
+                            if (window.confirm(err.response.body.msg)) {
+                                browserHistory.push('/login');
+                            }
+                        }
+                        msg.show(err.response.body.msg, {
+                            time: 2000,
+                            type: 'error',
+                        });
                         console.log(err)
                     });
             } else {
@@ -20,6 +29,7 @@ class Utils {
                     .query(options.data)
                     .set('token', typeof window != 'undefined' ? localStorage.getItem('token') : '')
                     .then(res => {
+                        console.log(res.body);
                         resolve(res.body);
                     }, err => {
                         if (err.response.status == 401 && typeof window != 'undefined') {
@@ -27,7 +37,10 @@ class Utils {
                                 browserHistory.push('/login');
                             }
                         }
-                        console.log(err.response);
+                        msg.show(err.response.body.msg, {
+                            time: 2000,
+                            type: 'error',
+                        });
                         console.log(err);
                     })
             }

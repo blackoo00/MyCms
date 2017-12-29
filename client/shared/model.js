@@ -8,14 +8,14 @@ const initialArr = {
 };
 
 class Model extends Utils{
-    ajaxData(arr = initialArr, callback = function(){}){
+    ajaxData(arr = initialArr,msg){
         arr = {...initialArr,...arr};
         return new Promise(resolve => {
             this.newAjax({
                 url: arr.server + arr.url,
                 data:arr.data,
                 type:arr.type,
-            }).then(data =>{
+            },msg).then(data =>{
                 resolve(data);
             })
         })

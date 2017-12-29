@@ -15,8 +15,8 @@ class App extends React.Component{
         return(
             <div>
                 <Search
-                    search = {(key) => rest.search(key)}
-                    title ={'订单'}
+                    search = {(e) => rest.search(e.target.value)}
+                    placeholder = {'请输入订单编号'}
                 />
                 <List
                     list = {rest.data.showlist}

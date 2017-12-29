@@ -10,7 +10,7 @@ import '../sass/global'
 
 class Common extends Component {
     constructor() {
-        super()
+        super();
     }
 
     render() {

@@ -25,8 +25,7 @@ class App extends React.Component{
         return(
             <div>
                 <Search
-                    search = {(key) => rest.search(key)}
-                    title ={'产品'}
+                    search = {(e) => rest.search(e.target.value)}
                 />
                 <List
                     list = {rest.data.showlist}
