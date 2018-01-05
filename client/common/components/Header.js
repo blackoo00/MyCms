@@ -12,7 +12,7 @@ class Header extends Component {
         return (
             <header className={styles.header}>
                 <div className={styles.left}>
-                    <span className={styles.span}>Boilerplate</span>
+                    <span className={styles.span}>Public CMS</span>
                 </div>
                 <div className={styles.right}>
                     <span className={styles.description}>Hello, {account}！</span>

@@ -2,13 +2,13 @@ import React from 'react'
 import FileUpload from 'react-fileupload'
 import styles from '../sass/style.scss'
 import CSSModules from 'react-css-modules'
-import {Col, ControlLabel, FormGroup} from 'react-bootstrap'
+import config from '../../shared/config';
 
 class App extends React.Component{
     render(){
         let {src,upload} = this.props;
         let options = {
-            baseUrl:'http://z.cn/api/cms/prod/up_prod_logo',
+            baseUrl:config.STORESERVER + 'prod/up_prod_logo',
             requestHeaders:{
                 token:localStorage.getItem('token')
             },

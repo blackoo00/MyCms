@@ -20,11 +20,11 @@ const App = ({login,ac,se,handleAccount,handlePassword}) => (
                     </div>
                     <div className="login-form">
                         <div className="form-group form-input">
-                            <input type="text" className="normal-input" id="user-name" onChange={handleAccount} placeholder="用户名" defaultValue={ac}/>
+                            <input type="text" className="normal-input" id="user-name" onChange={handleAccount} placeholder="用户名:admin" defaultValue={ac}/>
                                 <div className="common-error-tips"><div></div></div>
                         </div>
                         <div className="form-group form-input">
-                            <input type="password" className="normal-input" id="user-pwd" onChange={handlePassword} placeholder="密码" defaultValue={se}/>
+                            <input type="password" className="normal-input" id="user-pwd" onChange={handlePassword} placeholder="密码:123" defaultValue={se}/>
                                 <div className="common-error-tips"><div></div></div>
                         </div>
                         <div className="form-group form-btn">

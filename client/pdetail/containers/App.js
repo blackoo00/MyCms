@@ -11,7 +11,6 @@ import FormItem from '../components/form-item'
 import Property from '../components/property'
 import AlertContainer from 'react-alert'
 
-
 class App extends React.Component {
     componentWillMount() {
         let id = this.props.params.id

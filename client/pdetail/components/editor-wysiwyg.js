@@ -3,6 +3,7 @@ import {EditorState,ContentState} from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
 import {Editor} from 'react-draft-wysiwyg'
 import htmlToDraft from 'html-to-draftjs'
+import config from '../../shared/config';
 
 if (typeof window != 'undefined') {
     require('react-draft-wysiwyg/dist/react-draft-wysiwyg.css')
@@ -95,7 +96,7 @@ class App extends Component {
     imageUploadCallBack = file => new Promise(
         (resolve, reject) => {
             const xhr = new XMLHttpRequest() // eslint-disable-line no-undef
-            xhr.open('POST', 'http://z.cn/api/cms/prod/up_prod_details_img')
+            xhr.open('POST', config.STORESERVER + 'prod/up_prod_details_img')
             // xhr.setRequestHeader('Authorization', 'Client-ID 8d26ccd12712fca');
             xhr.setRequestHeader('token', localStorage.getItem('token'))
             const data = new FormData() // eslint-disable-line no-undef

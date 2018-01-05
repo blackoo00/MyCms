@@ -1,4 +1,5 @@
-const STORESERVER = 'http://z.cn/api/cms/';
+import config from './config';
+const STORESERVER = config.STORESERVER;
 import {Utils} from './utils';
 const initialArr = {
     url:'',
